@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Page</title>
+    <script>
+        // র্যান্ডম লিঙ্ক জেনারেট করা
+        function generateLink() {
+            // লিঙ্কের তালিকা
+            const links = ["/home/206", "/home/1005"];
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+            
+            // লিঙ্কটিকে পেজে দেখানো
+            document.getElementById("randomLink").innerHTML = `<a href="${randomLink}" id="dynamicLink">${randomLink}</a>`;
+
+            // লিঙ্কে ক্লিক করার সময় 6 সেকেন্ডের টাইমার শুরু করা
+            setTimeout(function() {
+                document.getElementById("dynamicLink").href = "notfound.html"; // যদি 6 সেকেন্ডের মধ্যে ক্লিক না করা হয়
+            }, 6000);
+        }
+
+        window.onload = generateLink; // পেজ লোড হলে র্যান্ডম লিঙ্ক জেনারেট হবে
+    </script>
+</head>
+<body>
+    <h1>Share Page</h1>
+    <p>Click on the link below within 6 seconds:</p>
+    <div id="randomLink">
+        <!-- Random link will be shown here -->
+    </div>
+</body>
+</html>
