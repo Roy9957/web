@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Page</title>
+    <script>
+        // পেজ লোড হলে, URL থেকে পাথ বের করা
+        window.onload = function() {
+            const path = window.location.pathname.split('/')[2];
+
+            // যদি পাথটি যেটি র্যান্ডম লিঙ্কে জেনারেট হয়েছিল তা থাকে, তাহলে কন্টেন্ট দেখানো হবে
+            if (path === '206' || path === '1005') {
+                document.getElementById("content").innerHTML = `<h1>Welcome to ${path} Page</h1>`;
+            } else {
+                // অন্যথায় Not Found পেজে রিডিরেক্ট হবে
+                document.location.href = "notfound.html";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="content">
+        <!-- Page content will be dynamically loaded based on the URL -->
+    </div>
+</body>
+</html>
